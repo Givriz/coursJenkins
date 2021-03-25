@@ -1,11 +1,10 @@
 package fr.givrix.coursJenkins;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.io.File;
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -74,17 +73,17 @@ class CalculsTest {
 	 // testAdditionner(5,10);
 	 // testAdditionner(55,2);
 	 // testAdditionner(60,10);
-	@ParameterizedTest(name="Test de l'addition nÂ°{index} : on additionne {0} + {1} et on vÃ©rifie que le rÃ©sultat est {2}")
+	@ParameterizedTest(name="Test de l'addition n°{index} : on additionne {0} + {1} et on vérifie que le résultat est {2}")
 	@MethodSource("chargerJeuDeTestAdditionner")
 	public void testAdditionner(int firstParam, int secondParam, int expectedResult) 
 	{
 		Calculs c = new Calculs(firstParam, secondParam);
-		assertEquals(c.additionner(), expectedResult, "Test additionner en erreur, rÃ©sultat attendu : " + expectedResult);
+		assertEquals(c.additionner(), expectedResult, "Test additionner en erreur, résultat attendu : " + expectedResult);
 
 		/*
-		assertEquals(c.additionner(), 15, "Test additionner en erreur, rÃ©sultat attendu : 50");
-		assertEquals(c2.additionner(), 57, "Test additionner en erreur, rÃ©sultat attendu : 57");
-		assertEquals(c3.additionner(), 70, "Test additionner en erreur, rÃ©sultat attendu : 70");
+		assertEquals(c.additionner(), 15, "Test additionner en erreur, résultat attendu : 50");
+		assertEquals(c2.additionner(), 57, "Test additionner en erreur, résultat attendu : 57");
+		assertEquals(c3.additionner(), 70, "Test additionner en erreur, résultat attendu : 70");
 		*/
 	}
 
@@ -95,23 +94,23 @@ class CalculsTest {
 		assertThrows(ArithmeticException.class, ()-> 
 		{
 			c.diviser();
-		} ); // c.diviser est censÃ© Throw ArithmeticException puisque division par zÃ©ro
+		} ); // c.diviser est censé Throw ArithmeticException puisque division par zéro
 	}
 	
-	@ParameterizedTest(name="Test de la soustraction nÂ°{index} : on soustrait {0} - {1} et on vÃ©rifie que le rÃ©sultat est {2}")
+	@ParameterizedTest(name="Test de la soustraction n°{index} : on soustrait {0} - {1} et on vérifie que le résultat est {2}")
 	@MethodSource("chargerJeuDeTestSoustraire")
 	public void testSoustraire(int firstParam, int secondParam, int expectedResult)
 	{
 		Calculs c = new Calculs(firstParam, secondParam);
-		assertEquals(c.soustraire(), expectedResult, "Test soustraire en erreur, rÃ©sultat attendu : " + expectedResult);		
+		assertEquals(c.soustraire(), expectedResult, "Test soustraire en erreur, résultat attendu : " + expectedResult);		
 	}
 	
-	@ParameterizedTest(name="Test de la multiplication nÂ°{index} : on multiplie {0} x {1} et on vÃ©rifie que le rÃ©sultat est {2}")
+	@ParameterizedTest(name="Test de la multiplication n°{index} : on multiplie {0} x {1} et on vérifie que le résultat est {2}")
 	@MethodSource("chargerJeuDeTestMultiplier")
 	public void testMultiplier(int firstParam, int secondParam, int expectedResult)
 	{
 		Calculs c = new Calculs(firstParam, secondParam);
-		assertEquals(c.multiplier(), expectedResult, "Test multiplier en erreur, rÃ©sultat attendu : " + expectedResult);		
+		assertEquals(c.multiplier(), expectedResult, "Test multiplier en erreur, résultat attendu : " + expectedResult);		
 	}
 	
 	
