@@ -1,4 +1,4 @@
-package fr.givrix.calculs;
+package fr.givrix.coursJenkins;
 
 import static org.junit.jupiter.api.Assertions.*;
 

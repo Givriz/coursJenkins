@@ -1,4 +1,4 @@
-package fr.givrix.calculs;
+package fr.givrix.coursJenkins;
 
 public class Calculs
 {

@@ -1,2 +1,0 @@
-# coursJenkins
-short description
