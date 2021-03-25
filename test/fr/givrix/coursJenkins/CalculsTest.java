@@ -40,7 +40,7 @@ class CalculsTest {
 		 return Stream.of(
 				 	Arguments.of(5, 10, 15),
 				 	Arguments.of(55, 2, 57),
-				 	Arguments.of(110, 120, 230),
+				 	Arguments.of(110, 120, 220),
 				 	Arguments.of(60, 10, 70)
 				 );
 	 }
