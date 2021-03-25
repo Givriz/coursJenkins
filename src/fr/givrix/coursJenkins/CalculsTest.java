@@ -34,15 +34,39 @@ class CalculsTest {
 	}
 	
 
-	 static Stream<Arguments> chargerJeuDeTestAdditionner() throws Throwable 
+	 static Stream<Arguments> chargerJeuDeTestAdditionner() throws Throwable
 	 {
-		 // Eventuellement : lire ces informations de tests depuis un fichier
+		// Eventuellement : lire ces informations de tests depuis un fichier
 		 
 		 return Stream.of(
-				 	Arguments.of(5,10, 15),
-				 	Arguments.of(55,2, 57),
-				 	Arguments.of(110,120, 230),
-				 	Arguments.of(60,10, 70)				 
+				 	Arguments.of(5, 10, 15),
+				 	Arguments.of(55, 2, 57),
+				 	Arguments.of(110, 120, 230),
+				 	Arguments.of(60, 10, 70)
+				 );
+	 }
+
+	 static Stream<Arguments> chargerJeuDeTestSoustraire() throws Throwable
+	 {
+		// Eventuellement : lire ces informations de tests depuis un fichier
+		 
+		 return Stream.of(
+				 	Arguments.of(5, 10, -5),
+				 	Arguments.of(55, 2, 53),
+				 	Arguments.of(110, 120, -10),
+				 	Arguments.of(60, 10, 50)
+				 );
+	 }
+
+	 static Stream<Arguments> chargerJeuDeTestMultiplier() throws Throwable
+	 {
+		// Eventuellement : lire ces informations de tests depuis un fichier
+		 
+		 return Stream.of(
+				 	Arguments.of(5, 10, 50),
+				 	Arguments.of(55, 2, 110),
+				 	Arguments.of(110, 120, 13200),
+				 	Arguments.of(60, 10, 600)
 				 );
 	 }
 	
@@ -74,18 +98,20 @@ class CalculsTest {
 		} ); // c.diviser est censÃ© Throw ArithmeticException puisque division par zÃ©ro
 	}
 	
-	@Test
+	@ParameterizedTest(name="Test de la soustraction nÂ°{index} : on soustrait {0} - {1} et on vÃ©rifie que le rÃ©sultat est {2}")
+	@MethodSource("chargerJeuDeTestSoustraire")
 	public void testSoustraire(int firstParam, int secondParam, int expectedResult)
 	{
 		Calculs c = new Calculs(firstParam, secondParam);
-		assertEquals(c.additionner(), expectedResult, "Test additionner en erreur, rÃ©sultat attendu : " + expectedResult);		
+		assertEquals(c.soustraire(), expectedResult, "Test soustraire en erreur, rÃ©sultat attendu : " + expectedResult);		
 	}
 	
-	@Test
+	@ParameterizedTest(name="Test de la multiplication nÂ°{index} : on multiplie {0} x {1} et on vÃ©rifie que le rÃ©sultat est {2}")
+	@MethodSource("chargerJeuDeTestMultiplier")
 	public void testMultiplier(int firstParam, int secondParam, int expectedResult)
 	{
 		Calculs c = new Calculs(firstParam, secondParam);
-		assertEquals(c., expectedResult, "Test multiplier en erreur, rÃ©sultat attendu : " + expectedResult);		
+		assertEquals(c.multiplier(), expectedResult, "Test multiplier en erreur, rÃ©sultat attendu : " + expectedResult);		
 	}
 	
 	
