@@ -10,7 +10,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <junit-platform.version>5.3.1</junit-platform.version>
+        <junit-platform.version>5.7.0</junit-platform.version>
   </properties>
    
   <build>
@@ -46,19 +46,7 @@
                 </configuration>
             </plugin>
         </plugins>      
-      
-    
   </build>
-
-<!--   
-    <dependencies>
-<dependency>
-    <groupId>nl.basjes.parse.httpdlog</groupId>
-    <artifactId>httpdlog-parser</artifactId>
-    <version>5.7</version>
-</dependency>
-    </dependencies>
--->  
 
 <!-- On importe les bibliothèques JUnit uniquement si l'objectif de la construction est de faire des tests (scope test). En Production ils ne seront pas intégré pour limiter les risques et le poids du package déployé -->
     <dependencies>
